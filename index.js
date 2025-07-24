@@ -13,5 +13,12 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(import.meta.dirname, 'index.html'));
 })
 
+app.get('/api/config', (req, res) => {
+    res.json({
+        mapsApiKey: process.env.MAPS_API
+    });
+});
+
+
 app.listen(port, () => {})
 console.log(`Server running at http://localhost:${port}`);
