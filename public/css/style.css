@@ -1,6 +1,8 @@
-body {
-    background-color: rgb(9, 9, 9);
+* {
+    box-sizing: border-box;
 }
+
+/* Landing Page */
 
 .header {
     display: flex;
@@ -26,4 +28,144 @@ body {
 .site-title.subtitle {
     font-family: "Albert Sans", sans-serif;
     font-size: 2rem;
+}
+
+/* Login Page */
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-header {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 4rem;
+    margin: 1rem;
+}
+
+.login-input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-input-password-label {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+.login-input-password {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+}
+
+.login-input-username-label {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+.login-input-username {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+}
+
+.login-button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+/* Admin Page */
+
+.admin-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.admin-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-header {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 4rem;
+    margin: 1rem;
+}
+
+.admin-input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-input-password-label {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+.admin-input-password {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+}
+
+.admin-input-username-label {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+.admin-input-username {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+}
+
+.admin-button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    margin: 1rem;
 }
