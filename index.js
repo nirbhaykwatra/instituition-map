@@ -19,6 +19,18 @@ app.get('/api/config', (req, res) => {
     });
 });
 
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(import.meta.dirname, 'login.html'));
+})
+
+app.post('/login', (req, res) => {
+    res.redirect('/admin');
+})
+
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(import.meta.dirname, 'admin.html'));
+})
+
 
 app.listen(port, () => {})
 console.log(`Server running at http://localhost:${port}`);
