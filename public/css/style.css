@@ -62,30 +62,39 @@
 .login-input-container {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: white;
 }
 
 .login-input-password-label {
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
-    font-size: 2rem;
+    font-size: 1rem;
     margin: 1rem;
 }
 
 .login-input-password {
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
+    margin: 0.5rem;
 }
 
 .login-input-username-label {
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
-    font-size: 2rem;
+    font-size: 1rem;
     margin: 1rem;
 }
 
 .login-input-username {
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
+    margin: 0.5rem;
 }
 
 .login-button-container {
@@ -132,6 +141,13 @@
 .admin-input-container {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: white;
 }
 
 .admin-input-password-label {
@@ -144,6 +160,7 @@
 .admin-input-password {
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
+    margin: 0.5rem;
 }
 
 .admin-input-username-label {
@@ -156,6 +173,7 @@
 .admin-input-username {
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
+    margin: 0.5rem;
 }
 
 .admin-button-container {
