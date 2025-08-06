@@ -9,7 +9,7 @@
     color: white;
     flex-direction: row;
     justify-content: center;
-    align-items: top;
+    align-items: flex-start;
     margin-top: 20rem;
     height: 100%;
 }
