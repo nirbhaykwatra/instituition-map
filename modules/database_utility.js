@@ -1,10 +1,15 @@
+import postgres from "postgres";
+import fs from "fs";
+import { config } from "dotenv";
+import path from "path";
+
 const schools = [
     {
         name: "Mountainside Secondary",
         tags: "School",
         type: "school",
         address: "3365 Mahon Avenue North Vancouver BC",
-        district: "School District 44",
+        district: 44,
         requests: ["Request 1", "Request 2"],
         programs: ["Program 1"],
         position: {
@@ -17,7 +22,7 @@ const schools = [
         tags: "School",
         type: "school",
         address: "1033 Handsworth Road North Vancouver BC",
-        district: "School District 44",
+        district: 44,
         requests: ["Request 1", "Request 2"],
         programs: ["Program 1"],
         position: {
@@ -30,7 +35,7 @@ const schools = [
         tags: "School",
         type: "school",
         address: "2145 Jones Avenue North Vancouver BC",
-        district: "School District 44",
+        district: 44,
         requests: ["Request 1", "Request 2"],
         programs: ["Program 1"],
         position: {
@@ -43,7 +48,7 @@ const schools = [
         tags: "School",
         type: "school",
         address: "1131 Frederick Road North Vancouver BC",
-        district: "School District 44",
+        district: 44,
         requests: ["Request 1", "Request 2"],
         programs: ["Program 1"],
         position: {
@@ -52,7 +57,6 @@ const schools = [
         }
     }
 ];
-
 const industryPartners = [
     {
         name: "Elk Valley Resources",
@@ -115,7 +119,6 @@ const industryPartners = [
         }
     }
 ]
-
 const postSecondary = [
     {
         name: "Capilano University",
@@ -130,4 +133,43 @@ const postSecondary = [
     },
 ]
 
-export { schools, industryPartners, postSecondary };
+const sql = postgres({
+    host                 : process.env.MAPS_DB_ENDPOINT,            // Postgres ip address[s] or domain name[s]
+    port                 : 5432,          // Postgres server port[s]
+    database             : process.env.MAPS_DB,            // Name of database to connect to
+    username             : process.env.MAPS_DB_USER,            // Username of database user
+    password             : process.env.MAPS_DB_PASS,            // Password of database user
+    ssl: {
+        require: true,
+        rejectUnauthorized: true,
+        ca: fs.readFileSync('/Users/nirbhaykwatra/ssh-keys/ca-central-1-bundle.pem').toString(),
+        
+    }
+})
+
+async function insertData() {
+    await sql `INSERT INTO map_institutions.schools (
+                                      name, 
+                                      tags, 
+                                      type, 
+                                      address, 
+                                      district, 
+                                      requests, 
+                                      programs, 
+                                      location
+    ) VALUES (
+              ${schools[0].name}, 
+              ${schools[0].tags}, 
+              ${schools[0].type}, 
+              ${schools[0].address}, 
+              ${schools[0].district}, 
+              ${schools[0].requests}, 
+              ${schools[0].programs}, 
+              ${schools[0].position}
+                            );`
+    
+    console.log(`Inserted ${schools[0].name}'s data into the database.`);
+
+}
+
+export { insertData, schools, industryPartners, postSecondary };
