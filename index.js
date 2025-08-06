@@ -2,6 +2,7 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv/config';
+import { schools, industryPartners, postSecondary } from "./modules/database_utility.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -17,6 +18,11 @@ app.get('/api/config', (req, res) => {
     res.json({
         mapsApiKey: process.env.MAPS_API
     });
+});
+
+app.get('/api/data', (req, res) => {
+    const data = [schools, industryPartners, postSecondary];
+    res.json(data);
 });
 
 app.get('/login', (req, res) => {
