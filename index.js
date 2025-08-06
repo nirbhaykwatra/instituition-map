@@ -2,7 +2,7 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv/config';
-import { schools, industryPartners, postSecondary } from "./modules/database_utility.js";
+import router from './modules/router.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,16 +14,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(import.meta.dirname, 'index.html'));
 })
 
-app.get('/api/config', (req, res) => {
-    res.json({
-        mapsApiKey: process.env.MAPS_API
-    });
-});
-
-app.get('/api/data', (req, res) => {
-    const data = [schools, industryPartners, postSecondary];
-    res.json(data);
-});
+app.use('/api', router);
 
 app.get('/login', (req, res) => {
     res.sendFile(path.join(import.meta.dirname, 'login.html'));

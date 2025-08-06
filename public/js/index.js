@@ -19,12 +19,13 @@ try {
   console.error('Failed to load configuration:', error);
 }
 
-const mapData = await fetch('/api/data');
-const data = await mapData.json();
+const getSchools = await fetch('/api/schools');
+const getIndustryPartners = await fetch('/api/industry');
+const getPostSecondary = await fetch('/api/postsec');
 
-const schools = data[0];
-const industryPartners = data[1];
-const postSecondary = data[2];
+const schools = await getSchools.json();
+const industryPartners = await getIndustryPartners.json();
+const postSecondary = await getPostSecondary.json();
 
 function initSearch() {
   const searchBox = document.querySelector(".search-input");
