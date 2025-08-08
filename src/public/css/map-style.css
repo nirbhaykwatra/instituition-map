@@ -494,6 +494,9 @@ body {
   display: flex;
   align-items: flex-start;
   background-color: #FFFFFF;
+  border-width: 2px;
+  border-color: var(--school-color);
+  border-style: solid;
   border-radius: 8px;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
   height: fit-content;
@@ -533,6 +536,9 @@ body {
   display: flex;
   align-items: flex-start;
   background-color: #FFFFFF;
+  border-width: 2px;
+  border-color: var(--industry-color);
+  border-style: solid;
   border-radius: 8px;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
   height: fit-content;
@@ -572,6 +578,9 @@ body {
   display: flex;
   align-items: flex-start;
   background-color: #FFFFFF;
+  border-width: 2px;
+  border-color: var(--postsec-color);
+  border-style: solid;
   border-radius: 8px;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
   height: fit-content;

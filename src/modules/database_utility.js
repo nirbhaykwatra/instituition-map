@@ -1,62 +1,6 @@
 import postgres from "postgres";
 import fs from "fs";
-import { config } from "dotenv";
-import path from "path";
 
-const schools = [
-    {
-        name: "Mountainside Secondary",
-        tags: "School",
-        type: "school",
-        address: "3365 Mahon Avenue North Vancouver BC",
-        district: 44,
-        requests: ["Request 1", "Request 2"],
-        programs: ["Program 1"],
-        position: {
-            lat: 49.34035303968323,
-            lng: -123.08051030146905
-        }
-    },
-    {
-        name: "Handsworth Secondary",
-        tags: "School",
-        type: "school",
-        address: "1033 Handsworth Road North Vancouver BC",
-        district: 44,
-        requests: ["Request 1", "Request 2"],
-        programs: ["Program 1"],
-        position: {
-            lat: 49.35242802064235,
-            lng: -123.10137877302783
-        }
-    },
-    {
-        name: "Carson Graham Secondary",
-        tags: "School",
-        type: "school",
-        address: "2145 Jones Avenue North Vancouver BC",
-        district: 44,
-        requests: ["Request 1", "Request 2"],
-        programs: ["Program 1"],
-        position: {
-            lat: 49.329127965950505,
-            lng: -123.08180647510146
-        }
-    },
-    {
-        name: "Argyle Secondary",
-        tags: "School",
-        type: "school",
-        address: "1131 Frederick Road North Vancouver BC",
-        district: 44,
-        requests: ["Request 1", "Request 2"],
-        programs: ["Program 1"],
-        position: {
-            lat: 49.3416081277803,
-            lng: -123.04200298546256
-        }
-    }
-];
 const industryPartners = [
     {
         name: "Elk Valley Resources",
@@ -142,34 +86,15 @@ const sql = postgres({
     ssl: {
         require: true,
         rejectUnauthorized: true,
-        ca: fs.readFileSync('/Users/nirbhaykwatra/ssh-keys/ca-central-1-bundle.pem').toString(),
+        ca: fs.readFileSync('G:/ssh-keys/ca-central-1-bundle.pem').toString(),
         
     }
-})
+});
 
-async function insertData() {
-    await sql `INSERT INTO map_institutions.schools (
-                                      name, 
-                                      tags, 
-                                      type, 
-                                      address, 
-                                      district, 
-                                      requests, 
-                                      programs, 
-                                      location
-    ) VALUES (
-              ${schools[0].name}, 
-              ${schools[0].tags}, 
-              ${schools[0].type}, 
-              ${schools[0].address}, 
-              ${schools[0].district}, 
-              ${schools[0].requests}, 
-              ${schools[0].programs}, 
-              ${schools[0].position}
-                            );`
-    
-    console.log(`Inserted ${schools[0].name}'s data into the database.`);
-
+async function retrieveSchools() {
+    return sql `SELECT * FROM map_institutions.schools`;
 }
 
-export { insertData, schools, industryPartners, postSecondary };
+const schools = await retrieveSchools();
+
+export { retrieveSchools, schools, industryPartners, postSecondary };

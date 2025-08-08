@@ -1,9 +1,9 @@
 import express from 'express';
-import fs from 'fs';
-import path from 'path';
 import dotenv from 'dotenv/config';
+import path from 'path';
 import router from './modules/router.js';
-import { insertData } from './modules/database_utility.js';
+import base_router from "./modules/base-router.js";
+import { protect } from "./modules/auth.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -15,19 +15,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(import.meta.dirname, 'index.html'));
 })
 
-app.use('/api', router);
-
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(import.meta.dirname, 'login.html'));
-})
-
-app.post('/login', (req, res) => {
-    res.redirect('/admin');
-})
-
-app.get('/admin', (req, res) => {
-    res.sendFile(path.join(import.meta.dirname, 'admin.html'));
-})
+app.use('/', base_router);
+app.use('/api', protect, router);
 
 app.listen(port, () => {})
 console.log(`Server running at http://localhost:${port}`);

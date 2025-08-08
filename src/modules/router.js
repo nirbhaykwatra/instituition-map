@@ -29,10 +29,4 @@ router.delete('/schools:id', (req, res) => {})
 router.delete('/industry:id', (req, res) => {})
 router.delete('/postsec:id', (req, res) => {})
 
-router.get('/config', (req, res) => {
-    res.json({
-        mapsApiKey: process.env.MAPS_API
-    });
-})
-
 export default router;
