@@ -1,7 +1,5 @@
 import { Router } from 'express';
-import {schools, industryPartners, postSecondary, retrieveSchools} from "./database_utility.js";
 import path from "path";
-import router from "./router.js";
 
 const base_router = Router();
 
