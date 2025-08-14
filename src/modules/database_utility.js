@@ -1,5 +1,6 @@
 import postgres from "postgres";
 import fs from "fs";
+import path from "path";
 
 const industryPartners = [
     {
@@ -77,7 +78,7 @@ const postSecondary = [
     },
 ]
 
-const sql = postgres({
+const sql_db = postgres({
     host                 : process.env.MAPS_DB_ENDPOINT,            // Postgres ip address[s] or domain name[s]
     port                 : 5432,          // Postgres server port[s]
     database             : process.env.MAPS_DB,            // Name of database to connect to
@@ -86,15 +87,30 @@ const sql = postgres({
     ssl: {
         require: true,
         rejectUnauthorized: true,
-        ca: fs.readFileSync('G:/ssh-keys/ca-central-1-bundle.pem').toString(),
+        ca: fs.readFileSync(path.join(path.dirname(path.dirname(import.meta.dirname)), `ca-central-1-bundle.pem`)).toString(),
         
     }
 });
 
+const sql_auth = postgres({
+    host                 : process.env.MAPS_DB_ENDPOINT,            // Postgres ip address[s] or domain name[s]
+    port                 : 5432,          // Postgres server port[s]
+    database             : process.env.MAPS_AUTH_DB,            // Name of database to connect to
+    username             : process.env.MAPS_DB_USER,            // Username of database user
+    password             : process.env.MAPS_DB_PASS,            // Password of database user
+    ssl: {
+        require: true,
+        rejectUnauthorized: true,
+        ca: fs.readFileSync('G:/ssh-keys/ca-central-1-bundle.pem').toString(),
+
+    }
+});
+
 async function retrieveSchools() {
-    return sql `SELECT * FROM map_institutions.schools`;
+    return sql_db`SELECT *
+                  FROM map_institutions.schools`;
 }
 
 const schools = await retrieveSchools();
 
-export { retrieveSchools, schools, industryPartners, postSecondary };
+export { sql_db, sql_auth, retrieveSchools, schools, industryPartners, postSecondary };

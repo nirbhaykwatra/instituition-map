@@ -19,7 +19,12 @@ try {
   console.error('Failed to load configuration:', error);
 }
 
-const getSchools = await fetch('/api/schools');
+const getSchools = await fetch('/api/schools', {
+  method: 'GET',
+  headers: {
+    Authorization: 'Bearer '
+  },
+});
 const getIndustryPartners = await fetch('/api/industry');
 const getPostSecondary = await fetch('/api/postsec');
 

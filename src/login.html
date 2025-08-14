@@ -13,6 +13,7 @@
                     &family=Playfair+Display:ital,wght@0,400..900;1,400..900
                     &display=swap" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v6.2.0/js/all.js"></script>
+    <script src="login.js" type="module"></script>
     <title>Login</title>
 </head>
 <body>
@@ -23,11 +24,11 @@
             </div>
             <form class="login-form" method="post">
                 <div class="login-input-container">
-                    <input class="login-input-username" type="text" placeholder="Username">
-                    <input class="login-input-password" type="password" placeholder="Password">
+                    <input class="login-input-username" type="text" name="username" placeholder="Username">
+                    <input class="login-input-password" type="password" name="password" placeholder="Password">
                 </div>
                 <div class="login-button-container">
-                    <button class="login-button" value="OK">Login</button>
+                    <button class="login-button" value="OK" type="submit">Login</button>
                 </div>
             </form>
         </div>
