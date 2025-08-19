@@ -1,14 +1,15 @@
 import { Router } from 'express';
 import path from "path";
 import {createNewUser, loginUser} from "../handlers/user.js";
+import {protectCookie} from "./auth.js";
 
 const base_router = Router();
 
-base_router.get('/', (req, res) => {
+base_router.get('/', protectCookie, (req, res) => {
     res.sendFile(path.join(path.dirname(import.meta.dirname), '/index.html'));
 })
 
-base_router.get('/admin', (req, res) => {
+base_router.get('/admin', protectCookie, (req, res) => {
     res.sendFile(path.join(path.dirname(import.meta.dirname), '/admin.html'));
 })
 

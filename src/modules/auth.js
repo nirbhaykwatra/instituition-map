@@ -34,3 +34,19 @@ export const protect = (req, res, next) => {
         return res.status(401).json({message: 'Invalid token!'});
     }
 }
+
+export const protectCookie = (req, res, next) => {
+    const cookie = req.cookies.token;
+    
+    if (!cookie) {
+        return res.status(401).redirect('/login');
+    }
+    
+    try {
+        req.user = jwt.verify(cookie, process.env.JWT_SECRET);
+        next();
+    }
+    catch (err) {
+        return res.status(401).redirect('/login');
+    }
+}

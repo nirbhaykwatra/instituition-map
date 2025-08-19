@@ -11,20 +11,31 @@ const formDataToJSON = (formData) => {
     return JSON.stringify(data);
 }
 
-document.querySelector('.login-form').addEventListener('submit', function (event) {
+document.querySelector('.login-form').addEventListener('submit', async function (event) {
     event.preventDefault(); // Prevent default form submission
 
     const form = event.target;
     const formData = new FormData(form);
     const data = formDataToJSON(formData);
 
-    fetch('/login', {
+    await fetch('/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: data,
-    }, response => response.json())
+    }, response => response.json());
+
+    /*try {
+        const response = await fetch('/admin');
+
+        if (response.status === 200) {
+            window.location.href = '/admin';
+        }
+
+    } catch (error) {
+        console.error('Failed to load into admin page:', error);
+    }*/
 });
 
 

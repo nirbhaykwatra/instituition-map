@@ -1,5 +1,17 @@
 let selectedMarker = null;
 
+/*try {
+  const response = await fetch('/');
+  
+  if (response.status === 200) {
+    window.location.href = '/';
+  } else {
+    window.location.href = '/login';
+  }
+} catch (error) {
+  console.error('Failed to load into map page:', error);
+}*/
+
 try {
   const response = await fetch('/config');
   const config = await response.json();
@@ -19,12 +31,7 @@ try {
   console.error('Failed to load configuration:', error);
 }
 
-const getSchools = await fetch('/api/schools', {
-  method: 'GET',
-  headers: {
-    Authorization: 'Bearer '
-  },
-});
+const getSchools = await fetch('/api/schools');
 const getIndustryPartners = await fetch('/api/industry');
 const getPostSecondary = await fetch('/api/postsec');
 
@@ -252,9 +259,4 @@ function buildSidebar(markerView, sidebar, institution) {
   }
 }
 
-async function loadAuth() {
-
-}
-
-loadAuth();
 initMap();
