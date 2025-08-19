@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv/config';
 import path from 'path';
+import cookieParser from 'cookie-parser';
 import router from './modules/router.js';
 import base_router from "./modules/base-router.js";
 import { protect } from "./modules/auth.js";
@@ -14,6 +15,7 @@ app.use(express.static(path.join(import.meta.dirname, 'public', 'js')));
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use(cookieParser());
 
 app.get('/login', (req, res) => {
     res.sendFile(path.join(import.meta.dirname, 'login.html'));
