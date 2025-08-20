@@ -10,7 +10,7 @@ export const hashPassword = (password) => {
 }
 
 export const createJWT = (user) => {
-    return jwt.sign({id: user.id, username: user.username}, process.env.JWT_SECRET);
+    return jwt.sign({id: user.id, username: user.username}, process.env.JWT_SECRET, { expiresIn: '1h' });
 }
 
 export const protect = (req, res, next) => {
@@ -36,7 +36,7 @@ export const protect = (req, res, next) => {
 }
 
 export const protectCookie = (req, res, next) => {
-    const cookie = req.cookies.token;
+    const cookie = req.signedCookies.token;
     
     if (!cookie) {
         return res.status(401).redirect('/login');
@@ -49,4 +49,25 @@ export const protectCookie = (req, res, next) => {
     catch (err) {
         return res.status(401).redirect('/login');
     }
+}
+
+export const protectAdminCookie = (req, res, next) => {
+    const cookie = req.signedCookies.adminToken;
+
+    if (!cookie) {
+        return res.status(401).redirect('/adminLogin');
+    }
+
+    try {
+        req.user = jwt.verify(cookie, process.env.JWT_SECRET);
+        next();
+    }
+    catch (err) {
+        return res.status(401).redirect('/adminLogin');
+    }
+}
+
+export const storeUrl = (req, res, next) => {
+    req.url = req.session.originalUrl;
+    next();
 }

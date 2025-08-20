@@ -18,7 +18,7 @@ document.querySelector('.login-form').addEventListener('submit', async function 
     const formData = new FormData(form);
     const data = formDataToJSON(formData);
 
-    await fetch('/login', {
+    await fetch('/adminLogin', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

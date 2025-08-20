@@ -11,7 +11,7 @@ export const createNewUser = async (req, res) => {
     
     const password = await hashPassword(req.body.password);
     
-    const user = await sql_auth `INSERT INTO map_auth.public.users (username, password) VALUES (${req.body.username}, ${password}) RETURNING *;`;
+    const user = await sql_auth `INSERT INTO map_auth.public.users (username, password, role) VALUES (${req.body.username}, ${password}, ${req.body.role}) RETURNING *;`;
     
     const token = createJWT(user);
     res.status(201).json({ token });
@@ -29,7 +29,8 @@ export const loginUser = async (req, res, next) => {
             httpOnly: true,
             //secure: true,
             maxAge: 3600000,
-            sameSite: 'strict'
+            sameSite: 'strict',
+            signed: true,
         })
         .status(200)
         .json({ token });
@@ -37,5 +38,29 @@ export const loginUser = async (req, res, next) => {
     } else {
         res.status(401);
         return res.redirect('/login');
+    }
+}
+
+export const loginAdmin = async (req, res, next) => {
+    const user = await sql_auth `SELECT * FROM map_auth.public.users WHERE username = ${req.body.username} AND role = 'admin';`;
+
+    const password = await sql_auth `SELECT password FROM map_auth.public.users WHERE username = ${req.body.username} AND role = 'admin';`;
+    const valid = await comparePassword(req.body.password, password[0].password);
+
+    if (valid) {
+        const token = createJWT(user);
+        res.cookie('adminToken', token, {
+            httpOnly: true,
+            //secure: true,
+            maxAge: 3600000,
+            sameSite: 'strict',
+            signed: true,
+        })
+            .status(200)
+            .json({ token });
+        next();
+    } else {
+        res.status(401);
+        return res.redirect('/adminLogin');
     }
 }
