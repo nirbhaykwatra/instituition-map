@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts.css">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +25,10 @@
             </div>
             <form class="login-form" method="post">
                 <div class="login-input-container">
-                    <input class="login-input-username" type="text" name="username" placeholder="Username">
-                    <input class="login-input-password" type="password" name="password" placeholder="Password">
+                    <label class="login-input-username-label" for="username">Username</label>
+                    <input class="login-input-username" type="text" id="username" name="username" placeholder="Username" autocomplete="username">
+                    <label class="login-input-password-label" for="password">Password</label>
+                    <input class="login-input-password" type="password" id="password" name="password" placeholder="Password" autocomplete="password">
                 </div>
                 <div class="login-button-container">
                     <button class="login-button" value="OK" type="submit">Login</button>

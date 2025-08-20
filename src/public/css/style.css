@@ -2,6 +2,12 @@
     box-sizing: border-box;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
 /* Landing Page */
 
 .header {
@@ -38,6 +44,77 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: 100%;
+}
+
+.login-nav-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: calc(100vw / 15);
+    background-color: #b82025;
+    overflow: hidden;
+}
+
+.gu-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    width: 20%;
+    height: 100%;
+}
+.gu-logo img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.login-nav-header-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    padding-right: 10px;   
+}
+
+.actua-logo {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;   
+    width: 49%;
+    height: 100%;
+}
+
+.actua-logo img {
+    width: 100%;   
+    object-fit: contain;
+}
+
+.login-nav-header-right-separator {
+    background-color: white;
+    width: 2px;
+    height: 80%;
+    margin: 0 10px 0 10px;
+}
+
+.ubc-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+    width: 49%;
+    height: 100%;
+}
+.ubc-logo img {
+    width: 100%;  
+    object-fit: contain;
 }
 
 .login-container{
@@ -45,6 +122,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 50%;
 }
 
 .login-header-container {
@@ -53,10 +131,19 @@
 }
 
 .login-header {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Lexend", sans-serif;
     font-weight: 800;
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 1rem;
+    color: #b82025;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .login-input-container {
@@ -64,49 +151,71 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: left;
-    border: 1px solid black;
+    width: 100%;
+    border: 0px solid black;
     border-radius: 10px;
     padding: 1rem;
     margin: 1rem;
     background-color: white;
+    box-shadow: 5px 5px 13px 5px #c4c4c4;
 }
 
 .login-input-password-label {
-    font-family: "Montserrat", sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
     font-weight: 800;
     font-size: 1rem;
-    margin: 1rem;
 }
 
 .login-input-password {
-    font-family: "Montserrat", sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
     font-weight: 800;
-    margin: 0.5rem;
+    font-size: 1rem;   
+    width: 100%;
+    margin: 1rem 0 1rem 0;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
 }
 
 .login-input-username-label {
-    font-family: "Montserrat", sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
     font-weight: 800;
     font-size: 1rem;
-    margin: 1rem;
 }
 
 .login-input-username {
-    font-family: "Montserrat", sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
     font-weight: 800;
-    margin: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    margin: 1rem 0 1rem 0;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
 }
 
 .login-button-container {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
 }
 
 .login-button {
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
     font-size: 2rem;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
     margin: 1rem;
+    box-shadow: 5px 5px 13px 5px #c4c4c4;
 }
 
 /* Admin Page */
@@ -132,58 +241,8 @@
 }
 
 .admin-header {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Lexend", sans-serif;
     font-weight: 800;
     font-size: 4rem;
-    margin: 1rem;
-}
-
-.admin-input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: left;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 1rem;
-    margin: 1rem;
-    background-color: white;
-}
-
-.admin-input-password-label {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 800;
-    font-size: 2rem;
-    margin: 1rem;
-}
-
-.admin-input-password {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 800;
-    margin: 0.5rem;
-}
-
-.admin-input-username-label {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 800;
-    font-size: 2rem;
-    margin: 1rem;
-}
-
-.admin-input-username {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 800;
-    margin: 0.5rem;
-}
-
-.admin-button-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.admin-button {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 800;
-    font-size: 2rem;
     margin: 1rem;
 }
