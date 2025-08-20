@@ -27,7 +27,7 @@ export const loginUser = async (req, res, next) => {
         const token = createJWT(user);
         res.cookie('token', token, {
             httpOnly: true,
-            //secure: true,
+            secure: true,
             maxAge: 3600000,
             sameSite: 'strict',
             signed: true,
@@ -51,7 +51,7 @@ export const loginAdmin = async (req, res, next) => {
         const token = createJWT(user);
         res.cookie('adminToken', token, {
             httpOnly: true,
-            //secure: true,
+            secure: true,
             maxAge: 3600000,
             sameSite: 'strict',
             signed: true,
