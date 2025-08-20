@@ -27,7 +27,7 @@ document.querySelector('.login-form').addEventListener('submit', async function 
     }, response => response.json());
 
     try {
-        const originalUrl = '/';
+        const originalUrl = '/admin';
         const response = await fetch(originalUrl);
 
         if (response.status === 200) {
