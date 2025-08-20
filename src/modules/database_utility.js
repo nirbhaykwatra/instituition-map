@@ -101,7 +101,7 @@ const sql_auth = postgres({
     ssl: {
         require: true,
         rejectUnauthorized: true,
-        ca: fs.readFileSync('G:/ssh-keys/ca-central-1-bundle.pem').toString(),
+        ca: fs.readFileSync(path.join(path.dirname(path.dirname(import.meta.dirname)), `ca-central-1-bundle.pem`)).toString(),
 
     }
 });
