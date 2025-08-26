@@ -10,7 +10,7 @@ export const hashPassword = (password) => {
 }
 
 export const createJWT = (user) => {
-    return jwt.sign({id: user.id, username: user.username}, process.env.JWT_SECRET, { expiresIn: '1h' });
+    return jwt.sign({id: user.id, username: user.username, role: user.role}, process.env.JWT_SECRET, { expiresIn: '1h' });
 }
 
 export const protect = (req, res, next) => {

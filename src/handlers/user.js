@@ -18,6 +18,12 @@ export const createNewUser = async (req, res) => {
 }
 
 export const loginUser = async (req, res, next) => {
+    
+    if (req.body.username === undefined || req.body.password === undefined) {
+        res.status(400)
+        return res.redirect('/login');   
+    }
+    
     const user = await sql_auth `SELECT * FROM map_auth.public.users WHERE username = ${req.body.username};`;
     
     const password = await sql_auth `SELECT password FROM map_auth.public.users WHERE username = ${req.body.username};`;
@@ -42,6 +48,12 @@ export const loginUser = async (req, res, next) => {
 }
 
 export const loginAdmin = async (req, res, next) => {
+
+    if (req.body.username === undefined || req.body.password === undefined) {
+        res.status(400)
+        return res.redirect('/login');
+    }
+    
     const user = await sql_auth `SELECT * FROM map_auth.public.users WHERE username = ${req.body.username} AND role = 'admin';`;
 
     const password = await sql_auth `SELECT password FROM map_auth.public.users WHERE username = ${req.body.username} AND role = 'admin';`;

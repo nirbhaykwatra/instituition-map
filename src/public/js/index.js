@@ -187,6 +187,8 @@ function buildContent(institution) {
 function buildSidebar(markerView, sidebar, institution) {
   if (markerView.content.classList.contains("highlight")) {
 
+    sidebar.classList.remove("hidden");
+    
     switch (institution.tags) {
       case "School":
         sidebar.innerHTML = `
@@ -255,6 +257,7 @@ function buildSidebar(markerView, sidebar, institution) {
           break;
     }
   } else {
+    sidebar.classList.add("hidden");
     sidebar.innerHTML = ``;
   }
 }
