@@ -45,7 +45,7 @@ a:hover {
 
 .map {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
   align-items: flex-start;
   width: 100%;
@@ -93,7 +93,7 @@ body {
   height: 100%;
   position: absolute;
   left: 0;
-  padding: 10px;
+  padding: calc(100vw / 15) 0 0 10px;
 }
 
 .search-box-container {
@@ -125,7 +125,7 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  height: 80%;
+  height: auto;
   width: 100%;
   background-color: white;
   transition: all 0.3s ease-out;
@@ -614,4 +614,200 @@ body {
 
 .postsec:not(.highlight):has(.fa-building-columns)::after {
   border-top: 9px solid var(--postsec-color);
+}
+
+/* Navbar Styles */
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.login-nav-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: calc(100vw / 15);
+  background-color: #b82025;
+  overflow: hidden;
+}
+
+.gu-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  width: 20%;
+  height: 100%;
+}
+.gu-logo img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.login-nav-header-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+  padding-right: 10px;
+}
+
+.actua-logo {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 49%;
+  height: 100%;
+}
+
+.actua-logo img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.login-nav-header-right-separator {
+  background-color: white;
+  width: 2px;
+  height: 60%;
+  margin: 0 30px 0 30px;
+}
+
+.ubc-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 49%;
+  height: 100%;
+}
+.ubc-logo img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.login-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.login-header-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-header {
+  font-family: "Lexend", sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  margin: 1rem;
+  color: #b82025;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: left;
+  width: 100%;
+  border: 0px solid black;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: white;
+}
+
+.login-input-password-label {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.login-input-password {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  width: 100%;
+  margin: 1rem 0 1rem 0;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.login-input-username-label {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.login-input-username {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  width: 100%;
+  margin: 1rem 0 1rem 0;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.login-button-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.login-button {
+  font-family: "Lexend", sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  width: 100%;
+  padding: 1rem;
+  border: 0 solid black;
+  border-radius: 50px;
+  color: white;
+  background-color: #b82025;
+  margin: 1rem;
+
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #671215;
+}
+
+.login-button:active {
+  background-color: #671215;
+  box-shadow: 5px 5px 33px 3px #3b3b3b inset;
+}
+
+.hidden {
+  display: none;
 }

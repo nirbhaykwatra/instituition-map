@@ -6,6 +6,8 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: "IBM Plex Sans", sans-serif;
+    height: 100%;
+    width: 100%;
 }
 
 /* Landing Page */
@@ -41,7 +43,7 @@ html, body {
 .login-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100%;
     width: 100%;
@@ -56,6 +58,7 @@ html, body {
     height: calc(100vw / 15);
     background-color: #b82025;
     overflow: hidden;
+    margin: 0;
 }
 
 .gu-logo {
@@ -100,8 +103,8 @@ html, body {
 .login-nav-header-right-separator {
     background-color: white;
     width: 2px;
-    height: 80%;
-    margin: 0 10px 0 10px;
+    height: 60%;
+    margin: 0 30px 0 30px;
 }
 
 .ubc-logo {
@@ -157,7 +160,6 @@ html, body {
     padding: 1rem;
     margin: 1rem;
     background-color: white;
-    box-shadow: 5px 5px 13px 5px #c4c4c4;
 }
 
 .login-input-password-label {
@@ -199,23 +201,34 @@ html, body {
 .login-button-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 50%;
     justify-content: center;
     align-items: center;
     margin: 1rem;
 }
 
 .login-button {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Lexend", sans-serif;
     font-weight: 800;
     font-size: 2rem;
     width: 100%;
     padding: 1rem;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: white;
+    border: 0 solid black;
+    border-radius: 50px;
+    color: white;
+    background-color: #b82025;
     margin: 1rem;
-    box-shadow: 5px 5px 13px 5px #c4c4c4;
+    
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #671215;
+}
+
+.login-button:active {
+    background-color: #671215;
+    box-shadow: 5px 5px 33px 3px #3b3b3b inset;
 }
 
 /* Admin Page */
@@ -233,6 +246,10 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .admin-header-container {
@@ -245,4 +262,69 @@ html, body {
     font-weight: 800;
     font-size: 4rem;
     margin: 1rem;
+}
+
+.admin-content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    background-color: #b82025;
+    width: 20%;
+    height: 100%;
+    padding: 0rem;
+    margin: 0;
+}
+
+.admin-sidebar-item {
+    display: flex;
+    flex-direction: row;
+    font-family: "Lexend", sans-serif;
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin: 0rem;
+    padding: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+    justify-content: left;
+    align-items: center;
+}
+
+.admin-sidebar-item a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    justify-content: left;
+}
+
+.admin-sidebar-item a:hover {
+    color: #b82025;
+}
+
+.admin-sidebar-item:hover {
+    background-color: white;
+    color: #b82025;
+}
+
+.admin-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    width: 80%;
+    height: 100%;
+    padding: 1rem;
+    margin: 0;
 }
