@@ -1,4 +1,8 @@
-const sidebarItem = document.querySelector('.admin-sidebar-item');
+const content = document.querySelector('.admin-content');
+
+window.addEventListener('load', () => {
+    loadPage('/institutions');
+})
 
 document.addEventListener('click', (e) => {
     const { target } = e;
@@ -8,5 +12,12 @@ document.addEventListener('click', (e) => {
     }
     
     e.preventDefault();
-    console.log(target);
+    console.log(target.href);
+    
+    loadPage(target.href);
 });
+
+async function loadPage(url) {
+    const html = await fetch(url).then(response => response.text());
+    content.innerHTML = html.toString();
+}

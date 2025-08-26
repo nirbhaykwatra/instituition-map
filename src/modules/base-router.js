@@ -18,6 +18,13 @@ base_router.get('/config', (req, res) => {
         mapsApiKey: process.env.MAPS_API
     });
 })
+base_router.get('/institutions', (req, res) => {
+    res.sendFile(path.join(path.dirname(import.meta.dirname), '/manageinstitutions.html'));
+})
+
+base_router.get('/manage-users', (req, res) => {
+    res.sendFile(path.join(path.dirname(import.meta.dirname), '/manageusers.html'));
+})
 
 base_router.post('/user', createNewUser);
 base_router.post('/signin', loginUser)
