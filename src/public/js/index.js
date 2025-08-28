@@ -86,7 +86,7 @@ async function initMap() {
     const IndustryMarker = new google.maps.marker.AdvancedMarkerElement({
       map,
       content: buildContent(industry),
-      position: industry.position,
+      position: industry.location,
       title: industry.name,
     });
 
@@ -104,7 +104,7 @@ async function initMap() {
     const PostSecMarker = new google.maps.marker.AdvancedMarkerElement({
       map,
       content: buildContent(postsec),
-      position: postsec.position,
+      position: postsec.location,
       title: postsec.name,
     });
 
@@ -189,8 +189,8 @@ function buildSidebar(markerView, sidebar, institution) {
 
     sidebar.classList.remove("hidden");
     
-    switch (institution.tags) {
-      case "School":
+    switch (institution.type) {
+      case "school":
         sidebar.innerHTML = `
         <div class="sidebar-details">
           <div class="sidebar-header">
@@ -211,7 +211,7 @@ function buildSidebar(markerView, sidebar, institution) {
         `;
         break;
 
-      case "Industry Partner":
+      case "industry":
         sidebar.innerHTML = `
         <div class="sidebar-details">
           <div class="sidebar-header">
@@ -235,7 +235,7 @@ function buildSidebar(markerView, sidebar, institution) {
         `;
         break;
 
-        case "Post Secondary":
+        case "postsec":
           sidebar.innerHTML = `
           <div class="sidebar-details">
             <div class="sidebar-header">
@@ -248,6 +248,9 @@ function buildSidebar(markerView, sidebar, institution) {
                   <span>${institution.tags}</span>
                 </div>
               </div>
+              <div class="contact">
+              <span>Contact: <b>${institution.contact}</b></span>
+                </div>
               <div class="address">
                 <span>${institution.address}</span>
               </div>
