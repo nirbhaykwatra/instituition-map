@@ -126,8 +126,8 @@ function addIndustry(name, tags, type, address, programs, contact, location) {
     return sql_db`INSERT INTO map_institutions.partners (name, tags, type, address, programs, contact, location) VALUES (${name}, ${tags}, ${type}, ${address}, ${programs}, ${contact}, ${location});`;
 }
 
-function addPostSecondary(name, tags, type, address, programs, location) {
-    return sql_db`INSERT INTO map_institutions.postsecondary (name, tags, type, address, programs, location) VALUES (${name}, ${tags}, ${type}, ${address}, ${programs}, ${location});`;
+function addPostSecondary(name, tags, type, address, contact, programs, location) {
+    return sql_db`INSERT INTO map_institutions.postsecondary (name, tags, type, address, contact, programs, location) VALUES (${name}, ${tags}, ${type}, ${address}, ${contact}, ${programs}, ${location});`;
 }
 
 export async function addInstitution(name, tags, type, address, district, programs, contact, position) {
@@ -135,7 +135,7 @@ export async function addInstitution(name, tags, type, address, district, progra
         return addIndustry(name, tags, type, address, programs, contact, position);
     }
     else if (type === "postsec") {
-        return addPostSecondary(name, tags, type, address, programs, position);
+        return addPostSecondary(name, tags, type, address, contact, programs, position);
     }
     else if (type === "school") {
         return addSchool(name, tags, type, address, district, programs, position);
